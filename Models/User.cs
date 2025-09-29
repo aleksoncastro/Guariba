@@ -21,14 +21,16 @@ namespace Guariba.Models
 
         public PersonalInformation PersonalInformation { get; set; }
 
-        public ICollection<Interest> Interests { get; set; }
+        public ICollection<UserInterest> UserInterests { get; set; } = new List<UserInterest>();
 
         // --- Seguidores / Seguindo (N:N via UserFollow) ---
         // TER QUE FAZER MANUALMENTE POIS O SCAFFOLDING NÃO FAZ AUTOMATICAMENTE
-        [NotMapped]
-        public ICollection<UserFollow> Follows { get; set; }     // quem o usuário segue
-        [NotMapped]
-        public ICollection<UserFollow> Followers { get; set; }   // quem segue o usuário
+        //[NotMapped]
+        public ICollection<UserFollow> Follows { get; set; } = new List<UserFollow>();
+        // quem o usuário segue
+        // [NotMapped]
+        public ICollection<UserFollow> Followers { get; set; } = new List<UserFollow>();   // quem segue o usuário
+
 
         // --- Navegações inversas de Conteúdo ---
         public ICollection<Post> Posts { get; set; }             // posts criados pelo usuário
@@ -37,7 +39,9 @@ namespace Guariba.Models
         public ICollection<Share> Shares { get; set; }           // reposts feitos
 
         // --- Navegações inversas de Mensagens Privadas ---
-        public ICollection<PrivateMessage> SentMessages { get; set; }
-        public ICollection<PrivateMessage> ReceivedMessages { get; set; }
+        //[NotMapped]
+        public ICollection<PrivateMessage> SentMessages { get; set; } = new List<PrivateMessage>();
+        // [NotMapped]
+        public ICollection<PrivateMessage> ReceivedMessages { get; set; } = new List<PrivateMessage>();
     }
 }

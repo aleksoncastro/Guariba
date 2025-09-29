@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Guariba")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+051e3d080aa3c7b4ec7c43a9b2c60088e1dc6c03")]
 [assembly: System.Reflection.AssemblyProductAttribute("Guariba")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Guariba")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

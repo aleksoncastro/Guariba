@@ -253,10 +253,12 @@ C:\Users\Alêkson\source\repos\Guariba\Guariba\obj\Debug\net8.0\staticwebassets.
 C:\Users\Alêkson\source\repos\Guariba\Guariba\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\Alêkson\source\repos\Guariba\Guariba\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\Alêkson\source\repos\Guariba\Guariba\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\Alêkson\source\repos\Guariba\Guariba\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Alêkson\source\repos\Guariba\Guariba\obj\Debug\net8.0\Guariba.csproj.Up2Date
 C:\Users\Alêkson\source\repos\Guariba\Guariba\obj\Debug\net8.0\Guariba.dll
 C:\Users\Alêkson\source\repos\Guariba\Guariba\obj\Debug\net8.0\refint\Guariba.dll
 C:\Users\Alêkson\source\repos\Guariba\Guariba\obj\Debug\net8.0\Guariba.pdb
 C:\Users\Alêkson\source\repos\Guariba\Guariba\obj\Debug\net8.0\Guariba.genruntimeconfig.cache
 C:\Users\Alêkson\source\repos\Guariba\Guariba\obj\Debug\net8.0\ref\Guariba.dll
+C:\Users\Alêkson\source\repos\Guariba\Guariba\obj\Debug\net8.0\Guariba.sourcelink.json
+C:\Users\Alêkson\source\repos\Guariba\Guariba\bin\Debug\net8.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+C:\Users\Alêkson\source\repos\Guariba\Guariba\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

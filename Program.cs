@@ -1,7 +1,15 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Guariba.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<SocialMediaContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SocialMediaContext") ?? throw new InvalidOperationException("Connection string 'SocialMediaContext' not found.")));
+
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 var app = builder.Build();
 
@@ -12,6 +20,20 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+else
+{
+    app.UseDeveloperExceptionPage();
+    app.UseMigrationsEndPoint();
+}
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<SocialMediaContext>();
+    context.Database.EnsureCreated();
+    // Se quiser popular dados iniciais, chame aqui um método para seed.
+}
+
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
