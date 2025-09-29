@@ -35,32 +35,6 @@
                 <span asp-validation-for="User.RegistrationDat" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="User.ProfilePhoto" class="control-label"></label>
-                <input asp-for="User.ProfilePhoto" class="form-control" />
-                <span asp-validation-for="User.ProfilePhoto" class="text-danger"></span>
-            </div>
-            <<div class="form-group">
-                <label class="control-label">Interesses</label>
-                <div class="checkbox-list">
-                    @*
-           O loop vai passar por todas as opções de interesses que carregamos no OnGet
-        *@
-        @foreach (var interest in Model.AllInterests)
-                    {
-                        <div class="form-check">
-                            <input class="form-check-input"
-                                   type="checkbox"
-                                   name="SelectedInterests"
-                                   value="@((int)interest)"
-                                   id="interest-@((int)interest)" />
-                            <label class="form-check-label" for="interest-@((int)interest)">
-                                @interest.ToString()
-                            </label>
-                        </div>
-                    }
-                </div>
-            </div>
-            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>

@@ -33,10 +33,12 @@ namespace Guariba.Models
 
 
         // --- Navegações inversas de Conteúdo ---
-        public ICollection<Post> Posts { get; set; }             // posts criados pelo usuário
-        public ICollection<Comment> Comments { get; set; }       // comentários feitos
-        public ICollection<Like> LikesGiven { get; set; }        // likes dados
-        public ICollection<Share> Shares { get; set; }           // reposts feitos
+        // Depois (com a correção)
+        public ICollection<Post> Posts { get; set; } = new List<Post>();
+        public ICollection<Share> Shares { get; set; } = new List<Share>();
+        public ICollection<Comment> Comments { get; set; } = new List<Comment>();
+        public ICollection<Like> LikesGiven { get; set; } = new List<Like>();
+   
 
         // --- Navegações inversas de Mensagens Privadas ---
         //[NotMapped]

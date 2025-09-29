@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Guariba.Data;
 using Guariba.Models;
 
+
 namespace Guariba.Pages.Users
 {
     public class CreateModel : PageModel
@@ -20,54 +21,50 @@ namespace Guariba.Pages.Users
         }
 
         [BindProperty]
-        public User User { get; set; } = default!;
-
-        // Propriedade APENAS para receber os IDs dos interesses selecionados no formulário
-        [BindProperty]
-        public List<int> SelectedInterests { get; set; }
-
-        // Propriedade APENAS para exibir as opções de checkbox na tela
-        public List<Interest> AllInterests { get; set; }
+        public new User User { get; set; } = default!;
 
         public IActionResult OnGet()
         {
-            AllInterests = Enum.GetValues(typeof(Interest)).Cast<Interest>().ToList();
-
             return Page();
         }
 
+        public async Task<IActionResult> OnPostAsync()  {
+            // Removemos a validação dos campos que vamos definir manualmente
+            ModelState.Remove("User.ProfilePhoto");
+            ModelState.Remove("User.RegistrationDat");
+            ModelState.Remove("User.PersonalInformation");
 
-       
-
-
-        // For more information, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
-        {
             if (!ModelState.IsValid)
             {
-                AllInterests = Enum.GetValues(typeof(Interest)).Cast<Interest>().ToList();
+                // --- Adicione este bloco para depuração ---
+                foreach (var entry in ModelState)
+                {
+                    if (entry.Value.Errors.Count > 0)
+                    {
+                        Console.WriteLine($"Campo: {entry.Key}");
+                        foreach (var error in entry.Value.Errors)
+                        {
+                            Console.WriteLine($"Erro: {error.ErrorMessage}");
+                        }
+                    }
+                }
+                // ------------------------------------------
+
+                // Se ainda houver erros (ex: Username vazio), retorna a página
                 return Page();
             }
 
-            // Crie o usuário primeiro (sem os interesses) e salve para obter um ID
-            // Se for uma página de Edição, você já terá o usuário carregado
-            _context.User.Add(User);
-            await _context.SaveChangesAsync(); // Agora o User.Id existe!
-
-            // Agora, adicione os interesses selecionados
-            if (SelectedInterests != null)
+            // ---- DEFININDO VALORES PADRÃO ----
+            User.ProfilePhoto = "default-avatar.png"; // Um valor padrão para a foto
+            User.RegistrationDat = DateTime.Now; // A data de registro automática
+            User.PersonalInformation = new PersonalInformation
             {
-                foreach (var interestId in SelectedInterests)
-                {
-                    var userInterest = new UserInterest
-                    {
-                        UserId = User.Id,
-                        Interest = (Interest)interestId // Converte o ID de volta para o enum
-                    };
-                    _context.UserInterest.Add(userInterest);
-                }
-                await _context.SaveChangesAsync(); // Salva as relações de interesse
-            }
+                FullName = "Nome a ser preenchido" // Valor padrão
+            };
+            // ------------------------------------
+
+            _context.User.Add(User);
+            await _context.SaveChangesAsync(); // Apenas um SaveChanges é necessário agora
 
             return RedirectToPage("./Index");
         }
