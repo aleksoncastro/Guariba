@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Guariba.Migrations
 {
     [DbContext(typeof(SocialMediaContext))]
-    [Migration("20250929023238_FixLikeCascadeDelete")]
-    partial class FixLikeCascadeDelete
+    [Migration("20251001144659_NullPosts")]
+    partial class NullPosts
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -117,12 +117,23 @@ namespace Guariba.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("CommentsCount")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ImageUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("LikesCount")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RetweetsCount")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SharesCount")
+                        .HasColumnType("int");
 
                     b.Property<string>("TextContent")
                         .IsRequired()

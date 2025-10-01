@@ -30,8 +30,10 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var context = services.GetRequiredService<SocialMediaContext>();
+    context.Database.EnsureDeleted(); // deleta o banco
     context.Database.EnsureCreated();
     // Se quiser popular dados iniciais, chame aqui um método para seed.
+    DbInitializer.Initialize(context);
 }
 
 

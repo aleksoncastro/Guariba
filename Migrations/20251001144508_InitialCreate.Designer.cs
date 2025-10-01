@@ -4,6 +4,7 @@ using Guariba.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Guariba.Migrations
 {
     [DbContext(typeof(SocialMediaContext))]
-    partial class SocialMediaContextModelSnapshot : ModelSnapshot
+    [Migration("20251001144508_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -114,7 +117,7 @@ namespace Guariba.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CommentsCount")
+                    b.Property<int>("CommentsCount")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
@@ -123,13 +126,13 @@ namespace Guariba.Migrations
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("LikesCount")
+                    b.Property<int>("LikesCount")
                         .HasColumnType("int");
 
-                    b.Property<int?>("RetweetsCount")
+                    b.Property<int>("RetweetsCount")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SharesCount")
+                    b.Property<int>("SharesCount")
                         .HasColumnType("int");
 
                     b.Property<string>("TextContent")
