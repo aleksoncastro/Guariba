@@ -5,7 +5,6 @@
 }
 
 <div class="feed-container">
-    Sidebar
     <aside class="sidebar">
         <div class="logo">
             <h1>Guariba</h1>
@@ -32,13 +31,11 @@
         </nav>
     </aside>
 
-    Main Feed
     <main class="main-feed">
         <div class="feed-header">
             <h2>Feed</h2>
         </div>
 
-        Create Post Box
         <div class="create-post">
             <div class="post-avatar">
                 <div class="avatar-placeholder">U</div>
@@ -66,7 +63,6 @@
             </form>
         </div>
 
-        Posts Feed
         <div class="posts-list">
             @if (Model.Posts != null && Model.Posts.Any())
             {
@@ -82,7 +78,7 @@
                             <div class="post-header">
                                 <div class="post-user-info">
                                     <span class="post-username">@(post.User?.Username ?? "Usuário")</span>
-                                    <span class="post-handle">@@@(post.User?.Email?.Split("@@")[0] ?? "user")</span>
+                                    <span class="post-handle">&#64;@(post.User?.Email?.Split("@")[0] ?? "user")</span>
                                     <span class="post-dot">·</span>
                                     <span class="post-time">@GetTimeAgo(post.CreatedAt)</span>
                                 </div>
@@ -138,7 +134,6 @@
         </div>
     </main>
 
-    Right Sidebar (Trends/Suggestions)
     <aside class="right-sidebar">
         <div class="search-box">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -178,7 +173,7 @@
                 <div class="avatar-placeholder small">D</div>
                 <div class="suggestion-info">
                     <span class="suggestion-name">Dev Community</span>
-                    <span class="suggestion-handle">@@devcommunity</span>
+                    <span class="suggestion-handle">&#64;devcommunity</span>
                 </div>
                 <button class="follow-btn">Seguir</button>
             </div>
@@ -186,7 +181,7 @@
                 <div class="avatar-placeholder small">T</div>
                 <div class="suggestion-info">
                     <span class="suggestion-name">Tech News</span>
-                    <span class="suggestion-handle">@@technews</span>
+                    <span class="suggestion-handle">&#64;technews</span>
                 </div>
                 <button class="follow-btn">Seguir</button>
             </div>
@@ -228,6 +223,7 @@
     .feed-container {
         display: grid;
         grid-template-columns: 275px 600px 350px;
+        justify-content: center; /* Centraliza as colunas no espaço disponível */
         max-width: 1280px;
         margin: 0 auto;
         min-height: 100vh;
@@ -284,8 +280,8 @@
     /* Main Feed */
     .main-feed {
         border-right: 1px solid #2f3336;
-        border-left: 1px solid #2f3336;
         min-height: 100vh;
+        /* Removido o border-left para evitar borda dupla quando a sidebar some */
     }
 
     .feed-header {
@@ -360,7 +356,7 @@
         justify-content: space-between;
         align-items: center;
         padding-top: 12px;
-        border-top: 1px solid #2f3336;
+        /* Removida a borda, o create-post já tem uma borda inferior */
     }
 
     .post-icons {
@@ -497,12 +493,16 @@
         align-items: center;
         gap: 8px;
         padding: 8px;
-        border-radius: 4px;
+        border-radius: 50%; /* Faz o hover ficar circular */
         font-size: 13px;
         transition: all 0.2s;
     }
 
-        .action-btn:hover {
+        .action-btn span {
+            transition: color 0.2s;
+        }
+
+        .action-btn:hover span {
             color: #1d9bf0;
         }
 
@@ -516,10 +516,18 @@
             background-color: rgba(0, 186, 124, 0.1);
         }
 
+            .action-btn.retweet-btn:hover span {
+                color: #00ba7c;
+            }
+
         .action-btn.like-btn:hover {
             color: #f91880;
             background-color: rgba(249, 24, 128, 0.1);
         }
+
+            .action-btn.like-btn:hover span {
+                color: #f91880;
+            }
 
         .action-btn.share-btn:hover {
             color: #1d9bf0;
@@ -663,56 +671,55 @@
             background-color: #d7dbdc;
         }
 
-    /* Responsive */
+    /* --- Responsive --- */
+    /* CORRIGIDO */
     @@media (max-width: 1280px) {
-        .feed-container
+        .feed-container {
+            grid-template-columns: 88px 600px 1fr;
+            max-width: 100%; /* Ocupa a largura total */
+        }
 
-    {
-        grid-template-columns: 88px 600px 1fr;
+        .sidebar {
+            padding: 20px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centraliza os ícones */
+        }
+
+        .nav-item span {
+            display: none;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            text-align: center;
+        }
     }
 
-    .sidebar {
-        padding: 20px 12px;
-    }
-
-    .nav-item span {
-        display: none;
-    }
-
-    .logo h1 {
-        font-size: 24px;
-    }
-
-    }
-
+    /* CORRIGIDO */
     @@media (max-width: 1024px) {
-        .right-sidebar
+        .right-sidebar {
+            display: none;
+        }
 
-    {
-        display: none;
+        .feed-container {
+            grid-template-columns: 88px 1fr;
+        }
     }
 
-    .feed-container {
-        grid-template-columns: 88px 1fr;
-    }
-
-    }
-
+    /* CORRIGIDO */
     @@media (max-width: 768px) {
-        .feed-container
+        .feed-container {
+            grid-template-columns: 1fr;
+        }
 
-    {
-        grid-template-columns: 1fr;
-    }
+        .sidebar {
+            display: none;
+        }
 
-    .sidebar {
-        display: none;
-    }
-
-    .main-feed {
-        border-left: none;
-        border-right: none;
-    }
-
+        .main-feed {
+            border-left: none;
+            border-right: none;
+        }
     }
 </style>

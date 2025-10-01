@@ -1,13 +1,15 @@
-﻿using System;
+﻿using Guariba.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Guariba.Models;
 
 namespace Guariba.Data
 {
-    public class SocialMediaContext : DbContext
+    public class SocialMediaContext : IdentityDbContext<User, IdentityRole<int>, int>
     {
         public SocialMediaContext (DbContextOptions<SocialMediaContext> options)
             : base(options)
@@ -94,14 +96,6 @@ namespace Guariba.Data
                       .OnDelete(DeleteBehavior.Restrict); // Change the default from Cascade
             });
 
-            // Para a entidade Like
-            modelBuilder.Entity<Like>(entity =>
-            {
-                entity.HasOne(l => l.User)
-                      .WithMany(u => u.LikesGiven)
-                      .HasForeignKey(l => l.UserId)
-                      .OnDelete(DeleteBehavior.Restrict); // Quebra o caminho User -> Like
-            });
 
             // Para a entidade Share
             modelBuilder.Entity<Share>(entity =>
