@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("Guariba")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ccdb459c1ee88b41e266752ba821e087ce8b6c6a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3d8d58c73e0d911478dfe53218655fe0ac304db5")]
 [assembly: System.Reflection.AssemblyProductAttribute("Guariba")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Guariba")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

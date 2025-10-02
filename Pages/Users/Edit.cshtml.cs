@@ -87,7 +87,7 @@ namespace Guariba.Pages.Users
             if (await TryUpdateModelAsync<User>(
                 userToUpdate,
                 "User", // This is the prefix for the form fields
-                u => u.Username, u => u.Email /* add other User properties here */))
+                u => u.UserName, u => u.Email /* add other User properties here */))
             {
                 UpdateUserInterests(userToUpdate); // Call a helper method to update interests
                 await _context.SaveChangesAsync();
