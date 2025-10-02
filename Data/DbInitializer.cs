@@ -12,7 +12,7 @@ namespace Guariba.Data
             // context.Database.EnsureCreated();
 
             // Se já tiver usuários, não faz nada
-            if (context.User.Any())
+            if (context.          User.Any())
             {
                 return;   // DB já populado
             }
@@ -24,9 +24,9 @@ namespace Guariba.Data
             {
                 new User
                 {
-                    Username="joao",
+                    UserName="joao",
                     Email="joao@email.com",
-                    Password="123",
+                    PasswordHash="123", // Corrigido
                     RegistrationDat=now,
                     ProfilePhoto="/img/joao.png",
                     PersonalInformation = new PersonalInformation
@@ -38,9 +38,9 @@ namespace Guariba.Data
                 },
                 new User
                 {
-                    Username="maria",
+                    UserName="maria",
                     Email="maria@email.com",
-                    Password="123",
+                    PasswordHash="123", // Corrigido
                     RegistrationDat=now,
                     ProfilePhoto="/img/maria.png",
                     PersonalInformation = new PersonalInformation
@@ -52,9 +52,9 @@ namespace Guariba.Data
                 },
                 new User
                 {
-                    Username="ana",
+                    UserName="ana",
                     Email="ana@email.com",
-                    Password="123",
+                    PasswordHash="123", // Corrigido
                     RegistrationDat=now,
                     ProfilePhoto="/img/ana.png",
                     PersonalInformation = new PersonalInformation

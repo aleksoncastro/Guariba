@@ -107,7 +107,7 @@ namespace Guariba.Data
             });
 
             // Definição de tabela para cada entidade
-            modelBuilder.Entity<User>().ToTable("User");
+            modelBuilder.Entity<User>().ToTable("Users");
             modelBuilder.Entity<Comment>().ToTable("Comment");
             modelBuilder.Entity<Like>().ToTable("Like");
             modelBuilder.Entity<PersonalInformation>().ToTable("PersonalInformation");

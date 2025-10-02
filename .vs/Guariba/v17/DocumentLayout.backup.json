@@ -3,56 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\ADM\\source\\repos\\Guariba\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|c:\\users\\adm\\source\\repos\\guariba\\pages\\users\\delete.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|solutionrelative:pages\\users\\delete.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|c:\\users\\adm\\source\\repos\\guariba\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|c:\\users\\adm\\source\\repos\\guariba\\pages\\post\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|solutionrelative:pages\\post\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|c:\\users\\adm\\source\\repos\\guariba\\data\\socialmediacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|solutionrelative:data\\socialmediacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|c:\\users\\adm\\source\\repos\\guariba\\data\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|solutionrelative:data\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|c:\\users\\adm\\source\\repos\\guariba\\pages\\post\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|solutionrelative:pages\\post\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|c:\\users\\adm\\source\\repos\\guariba\\models\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|solutionrelative:models\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|c:\\users\\adm\\source\\repos\\guariba\\pages\\post\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|solutionrelative:pages\\post\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|c:\\users\\adm\\source\\repos\\guariba\\pages\\users\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|solutionrelative:pages\\users\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|c:\\users\\adm\\source\\repos\\guariba\\models\\personalinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|solutionrelative:models\\personalinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|c:\\users\\adm\\source\\repos\\guariba\\pages\\users\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|solutionrelative:pages\\users\\create.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|c:\\users\\adm\\source\\repos\\guariba\\pages\\feed\\feed.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|solutionrelative:pages\\feed\\feed.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|c:\\users\\adm\\source\\repos\\guariba\\pages\\users\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|solutionrelative:pages\\users\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|c:\\users\\adm\\source\\repos\\guariba\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|solutionrelative:pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|c:\\users\\adm\\source\\repos\\guariba\\areas\\identity\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{932E7C5F-89EC-A2F1-7019-F828EC188429}|Guariba.csproj|solutionrelative:areas\\identity\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,161 +30,42 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Delete.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\ADM\\source\\repos\\Guariba\\Pages\\Users\\Delete.cshtml.cs",
-              "RelativeDocumentMoniker": "Pages\\Users\\Delete.cshtml.cs",
-              "ToolTip": "C:\\Users\\ADM\\source\\repos\\Guariba\\Pages\\Users\\Delete.cshtml.cs",
-              "RelativeToolTip": "Pages\\Users\\Delete.cshtml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T19:21:05.279Z",
+              "DocumentIndex": 1,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\ADM\\source\\repos\\Guariba\\Pages\\Post\\Create.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Post\\Create.cshtml",
+              "ToolTip": "C:\\Users\\ADM\\source\\repos\\Guariba\\Pages\\Post\\Create.cshtml",
+              "RelativeToolTip": "Pages\\Post\\Create.cshtml",
+              "ViewState": "AgIAAOoAAAAAAAAAAAAkwAsBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-02T20:20:57.413Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Edit.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\ADM\\source\\repos\\Guariba\\Pages\\Post\\Edit.cshtml.cs",
-              "RelativeDocumentMoniker": "Pages\\Post\\Edit.cshtml.cs",
-              "ToolTip": "C:\\Users\\ADM\\source\\repos\\Guariba\\Pages\\Post\\Edit.cshtml.cs",
-              "RelativeToolTip": "Pages\\Post\\Edit.cshtml.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAADwvx4AAAANAAAAAAAAAA==",
+              "Title": "Register.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\ADM\\source\\repos\\Guariba\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "ToolTip": "C:\\Users\\ADM\\source\\repos\\Guariba\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "ViewState": "AgIAAHoAAAAAAAAAAAAswH4AAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T19:20:50.018Z"
+              "WhenOpened": "2025-10-02T20:18:45.206Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "Create.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\ADM\\source\\repos\\Guariba\\Pages\\Post\\Create.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Post\\Create.cshtml.cs",
               "ToolTip": "C:\\Users\\ADM\\source\\repos\\Guariba\\Pages\\Post\\Create.cshtml.cs",
               "RelativeToolTip": "Pages\\Post\\Create.cshtml.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAADwvxcAAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAwDkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T19:19:41.249Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DbInitializer.cs",
-              "DocumentMoniker": "C:\\Users\\ADM\\source\\repos\\Guariba\\Data\\DbInitializer.cs",
-              "RelativeDocumentMoniker": "Data\\DbInitializer.cs",
-              "ToolTip": "C:\\Users\\ADM\\source\\repos\\Guariba\\Data\\DbInitializer.cs",
-              "RelativeToolTip": "Data\\DbInitializer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T19:19:40.246Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Comment.cs",
-              "DocumentMoniker": "C:\\Users\\ADM\\source\\repos\\Guariba\\Models\\Comment.cs",
-              "RelativeDocumentMoniker": "Models\\Comment.cs",
-              "ToolTip": "C:\\Users\\ADM\\source\\repos\\Guariba\\Models\\Comment.cs",
-              "RelativeToolTip": "Models\\Comment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T19:15:39.208Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SocialMediaContext.cs",
-              "DocumentMoniker": "C:\\Users\\ADM\\source\\repos\\Guariba\\Data\\SocialMediaContext.cs",
-              "RelativeDocumentMoniker": "Data\\SocialMediaContext.cs",
-              "ToolTip": "C:\\Users\\ADM\\source\\repos\\Guariba\\Data\\SocialMediaContext.cs",
-              "RelativeToolTip": "Data\\SocialMediaContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T18:56:15.208Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "PersonalInformation.cs",
-              "DocumentMoniker": "C:\\Users\\ADM\\source\\repos\\Guariba\\Models\\PersonalInformation.cs",
-              "RelativeDocumentMoniker": "Models\\PersonalInformation.cs",
-              "ToolTip": "C:\\Users\\ADM\\source\\repos\\Guariba\\Models\\PersonalInformation.cs",
-              "RelativeToolTip": "Models\\PersonalInformation.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T18:47:19.478Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\ADM\\source\\repos\\Guariba\\Models\\User.cs",
-              "RelativeDocumentMoniker": "Models\\User.cs",
-              "ToolTip": "C:\\Users\\ADM\\source\\repos\\Guariba\\Models\\User.cs",
-              "RelativeToolTip": "Models\\User.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAgwCkAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T18:47:11.429Z",
+              "WhenOpened": "2025-10-02T20:18:41.683Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\ADM\\source\\repos\\Guariba\\Pages\\Users\\Create.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Users\\Create.cshtml",
-              "ToolTip": "C:\\Users\\ADM\\source\\repos\\Guariba\\Pages\\Users\\Create.cshtml",
-              "RelativeToolTip": "Pages\\Users\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-01T18:46:27.736Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Create.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\ADM\\source\\repos\\Guariba\\Pages\\Users\\Create.cshtml.cs",
-              "RelativeDocumentMoniker": "Pages\\Users\\Create.cshtml.cs",
-              "ToolTip": "C:\\Users\\ADM\\source\\repos\\Guariba\\Pages\\Users\\Create.cshtml.cs",
-              "RelativeToolTip": "Pages\\Users\\Create.cshtml.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAswEcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T18:46:20.975Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Index.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\ADM\\source\\repos\\Guariba\\Pages\\Users\\Index.cshtml.cs",
-              "RelativeDocumentMoniker": "Pages\\Users\\Index.cshtml.cs",
-              "ToolTip": "C:\\Users\\ADM\\source\\repos\\Guariba\\Pages\\Users\\Index.cshtml.cs",
-              "RelativeToolTip": "Pages\\Users\\Index.cshtml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T18:29:18.896Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\ADM\\source\\repos\\Guariba\\Pages\\Index.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Index.cshtml",
-              "ToolTip": "C:\\Users\\ADM\\source\\repos\\Guariba\\Pages\\Index.cshtml",
-              "RelativeToolTip": "Pages\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-01T18:29:03.558Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Feed.cshtml",
-              "DocumentMoniker": "C:\\Users\\ADM\\source\\repos\\Guariba\\Pages\\Feed\\Feed.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Feed\\Feed.cshtml",
-              "ToolTip": "C:\\Users\\ADM\\source\\repos\\Guariba\\Pages\\Feed\\Feed.cshtml",
-              "RelativeToolTip": "Pages\\Feed\\Feed.cshtml",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAAD4AAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-01T18:17:16.772Z"
             }
           ]
         }

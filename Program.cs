@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Guariba.Data;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,18 @@ builder.Services.AddDbContext<SocialMediaContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SocialMediaContext") ?? throw new InvalidOperationException("Connection string 'SocialMediaContext' not found.")));
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+// 🔹 Adiciona o Identity com User customizado
+builder.Services.AddDefaultIdentity<User>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = false; // pode ativar se quiser email
+    options.Password.RequireDigit = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequiredLength = 6;
+})
+    .AddRoles<IdentityRole<int>>() // se for usar roles
+    .AddEntityFrameworkStores<SocialMediaContext>();
 
 var app = builder.Build();
 
@@ -30,7 +43,7 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var context = services.GetRequiredService<SocialMediaContext>();
-    context.Database.EnsureDeleted(); // deleta o banco
+    context.Database.EnsureDeleted();
     context.Database.EnsureCreated();
     // Se quiser popular dados iniciais, chame aqui um método para seed.
     DbInitializer.Initialize(context);
@@ -42,6 +55,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
