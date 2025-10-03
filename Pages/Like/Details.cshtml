@@ -1,0 +1,37 @@
+﻿@page
+@model Guariba.Pages.Like.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Like</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Like.CreatedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Like.CreatedAt)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Like.User)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Like.User.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Like.Post)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Like.Post.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Like.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

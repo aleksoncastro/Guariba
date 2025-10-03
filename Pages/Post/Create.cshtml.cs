@@ -87,7 +87,7 @@ namespace Guariba.Pages.Post
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return RedirectToPage("/login");
+                return RedirectToPage("./Login");
             }
 
             Post.UserId = user.Id;

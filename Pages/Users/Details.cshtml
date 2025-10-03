@@ -1,62 +1,272 @@
-﻿@page
+﻿@page "/profile"
 @model Guariba.Pages.Users.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Profile";
 }
 
-<h1>Details</h1>
+<style>
+    body {
+        background-color: #000000;
+        color: #e7e9ea;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
 
-<div>
-    <h4>User</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.User.UserName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.User.UserName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.User.Email)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.User.Email)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.User.PasswordHash)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.User.PasswordHash)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.User.RegistrationDat)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.User.RegistrationDat)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.User.ProfilePhoto)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.User.ProfilePhoto)
-        </dd>
-        <dt class="col-sm-2">
-            Interests
-        </dt>
-        <dd class="col-sm-10">
-            @if (Model.User.UserInterests != null && Model.User.UserInterests.Any())
-            {
-                @string.Join(", ", Model.User.UserInterests.Select(ui => ui.Interest.ToString()))
-            }
-            else
-            {
-                <span>No interests listed.</span>
-            }
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.User.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    .twitter-profile-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #000000;
+        min-height: 100vh;
+        border-left: 1px solid #2f3336;
+        border-right: 1px solid #2f3336;
+    }
+
+    .profile-header {
+        position: relative;
+    }
+
+    .cover-photo {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        border-bottom: 1px solid #2f3336;
+    }
+
+    .profile-info-section {
+        padding: 0 16px;
+        position: relative;
+    }
+
+    .profile-avatar-container {
+        position: relative;
+        margin-top: -67px;
+        margin-bottom: 12px;
+    }
+
+    .profile-avatar {
+        width: 134px;
+        height: 134px;
+        border-radius: 50%;
+        border: 4px solid #000000;
+        background-color: #1a1a1a;
+        object-fit: cover;
+    }
+
+    .profile-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        padding: 12px 0;
+    }
+
+    .btn-twitter {
+        background-color: transparent;
+        color: #e7e9ea;
+        border: 1px solid #536471;
+        border-radius: 9999px;
+        padding: 8px 16px;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: background-color 0.2s;
+    }
+
+        .btn-twitter:hover {
+            background-color: rgba(239, 243, 244, 0.1);
+        }
+
+    .profile-names {
+        margin-bottom: 12px;
+    }
+
+    .profile-name {
+        font-size: 20px;
+        font-weight: 800;
+        color: #e7e9ea;
+        margin: 0;
+    }
+
+    .profile-username {
+        font-size: 15px;
+        color: #71767b;
+        margin: 0;
+    }
+
+    .profile-details {
+        margin-top: 12px;
+    }
+
+    .profile-detail-item {
+        display: flex;
+        align-items: center;
+        gap: 8px; /* Aumentei o gap para dar mais espaço ao ícone */
+        color: #71767b;
+        font-size: 15px;
+        margin-bottom: 12px;
+    }
+
+    .profile-detail-icon {
+        width: 18px;
+        height: 18px;
+        fill: #71767b;
+        flex-shrink: 0; /* Impede o ícone de encolher */
+    }
+
+    .profile-interests {
+        margin-top: 16px;
+        padding-top: 16px;
+    }
+
+    .interests-title {
+        font-size: 15px;
+        font-weight: 700;
+        color: #e7e9ea;
+        margin-bottom: 12px;
+    }
+
+    .interests-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .interest-badge {
+        background-color: rgba(29, 155, 240, 0.1);
+        color: #1d9bf0;
+        border: 1px solid rgba(29, 155, 240, 0.3);
+        border-radius: 9999px;
+        padding: 6px 12px;
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    .no-interests {
+        color: #71767b;
+        font-size: 15px;
+    }
+
+    .profile-tabs {
+        display: flex;
+        border-top: 1px solid #2f3336;
+        margin-top: 16px;
+    }
+
+    .profile-tab {
+        flex: 1;
+        text-align: center;
+        padding: 16px;
+        color: #71767b;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+        border-bottom: 2px solid transparent;
+        transition: background-color 0.2s;
+    }
+
+        .profile-tab.active {
+            color: #e7e9ea;
+            font-weight: 700;
+            border-bottom-color: #1d9bf0;
+        }
+
+        .profile-tab:hover {
+            background-color: rgba(239, 243, 244, 0.1);
+        }
+
+    @@media (max-width: 600px) {
+        .cover-photo {
+            height: 150px;
+        }
+
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+        }
+
+        .profile-avatar-container {
+            margin-top: -50px;
+        }
+    }
+</style>
+
+<div class="twitter-profile-container">
+    <div class="profile-header">
+        <div class="cover-photo"></div>
+    </div>
+
+    @if (Model.UserProfile != null)
+    {
+        <div class="profile-info-section">
+            <div class="profile-avatar-container">
+                @if (!string.IsNullOrEmpty(Model.UserProfile.ProfilePhoto))
+                {
+                    <img src="@Model.UserProfile.ProfilePhoto" alt="Avatar de @Model.UserProfile.UserName" class="profile-avatar" />
+                }
+                else
+                {
+                    @* Um placeholder caso não haja foto *@
+                    <div class="profile-avatar"></div>
+                }
+            </div>
+
+            <div class="profile-actions">
+                <a asp-page="/users/edit" asp-route-id="@Model.UserProfile.Id" class="btn-twitter">Editar perfil</a>
+            </div>
+
+            <div class="profile-names">
+                <h1 class="profile-name">@Html.DisplayFor(model => model.UserProfile.UserName)</h1>
+                <p class="profile-username">@@@Html.DisplayFor(model => model.UserProfile.UserName)</p>
+            </div>
+
+            <div class="profile-details">
+                <div class="profile-detail-item">
+                    <svg class="profile-detail-icon" viewBox="0 0 24 24">
+                        <path d="M1.998 5.5v13h20v-13l-10 6.5-10-6.5zm10 8.5l10-6.5v-2h-20v2l10 6.5z" />
+                    </svg>
+                    <span>@Html.DisplayFor(model => model.UserProfile.Email)</span>
+                </div>
+
+                <div class="profile-detail-item">
+                    <svg class="profile-detail-icon" viewBox="0 0 24 24">
+                        <path d="M7 4V3h2v1h6V3h2v1h1.5C19.89 4 21 5.12 21 6.5v12c0 1.38-1.11 2.5-2.5 2.5h-13C4.12 21 3 19.88 3 18.5v-12C3 5.12 4.12 4 5.5 4H7zm0 2H5.5c-.27 0-.5.22-.5.5v12c0 .28.23.5.5.5h13c.28 0 .5-.22.5-.5v-12c0-.28-.22-.5-.5-.5H17v1h-2V6H9v1H7V6z" />
+                    </svg>
+                    <span>Ingressou em @Model.UserProfile.RegistrationDat.ToString("MMMM 'de' yyyy")</span>
+                </div>
+            </div>
+
+            <div class="profile-interests">
+                <h2 class="interests-title">Interesses</h2>
+                @if (Model.UserProfile.UserInterests != null && Model.UserProfile.UserInterests.Any())
+                {
+                    <div class="interests-list">
+                        @foreach (var userInterest in Model.UserProfile.UserInterests)
+                        {
+                            <span class="interest-badge">@userInterest.ToString()</span>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <p class="no-interests">Nenhum interesse listado.</p>
+                }
+            </div>
+
+            <div class="profile-tabs">
+                <div class="profile-tab active">Posts</div>
+                <div class="profile-tab">Respostas</div>
+                <div class="profile-tab">Mídia</div>
+                <div class="profile-tab">Curtidas</div>
+            </div>
+
+            @* Aqui você pode adicionar a lógica para exibir os posts, respostas, etc. *@
+        </div>
+    }
+    else
+    {
+        <p>Não foi possível carregar o perfil do usuário.</p>
+    }
 </div>

@@ -91,7 +91,7 @@ namespace Guariba.Pages.Users
             {
                 UpdateUserInterests(userToUpdate); // Call a helper method to update interests
                 await _context.SaveChangesAsync();
-                return RedirectToPage("./Index");
+                return RedirectToPage("/profile");
             }
 
             return Page();

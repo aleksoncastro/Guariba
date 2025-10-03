@@ -374,15 +374,12 @@
         </div>
     </div>
 
-    <form method="post" class="comment-form">
+    <form method="post" asp-page="/Comment/Create" asp-route-postId="@Model.Post.Id" class="comment-form">
         <div class="comment-avatar">U</div>
         <div class="comment-input-wrapper">
-            <textarea asp-for="NewCommentText"
-                      class="comment-textarea"
-                      placeholder="Poste sua resposta"
-                      rows="1"></textarea>
-            <span asp-validation-for="NewCommentText" class="text-danger"></span>
-            <button type="submit" asp-page-handler="AddComment" class="comment-submit">
+
+            @* O botão agora é um simples 'submit', pois a lógica está na tag <form> *@
+            <button type="submit" class="comment-submit">
                 Responder
             </button>
         </div>

@@ -100,6 +100,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Alêkson/source/repos/Guariba/Guariba/Pages/Like/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlrZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alêkson/source/repos/Guariba/Guariba/Pages/Like/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlrZVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alêkson/source/repos/Guariba/Guariba/Pages/Like/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlrZVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alêkson/source/repos/Guariba/Guariba/Pages/Like/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlrZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alêkson/source/repos/Guariba/Guariba/Pages/Like/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlrZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Alêkson/source/repos/Guariba/Guariba/Pages/Post/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9zdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

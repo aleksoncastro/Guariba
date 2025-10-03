@@ -27,6 +27,7 @@ namespace Guariba.Pages.Post
         public async Task<IActionResult> OnGetAsync(int id)
         {
             Post = await _context.Post
+                .Include(p => p.User)
                 .Include(p => p.Comments)
                     .ThenInclude(c => c.User)
                 .FirstOrDefaultAsync(p => p.Id == id);

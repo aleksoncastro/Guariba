@@ -1,4 +1,6 @@
-﻿namespace Guariba.Models
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+
+namespace Guariba.Models
 {
     public class Like
     {
