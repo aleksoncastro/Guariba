@@ -203,65 +203,47 @@
             <span asp-validation-for="Post.TextContent" class="text-danger"></span>
         </div>
 
-        <!-- Hidden file input for image upload -->
         <input type="file"
-               id="imageInput"
+               asp-for="ImageFile" id="imageInput"
                class="file-input"
                accept="image/*"
                onchange="previewImage(event)" />
 
-        <!-- Image preview container -->
         <div id="imagePreviewContainer" class="image-preview-container">
-            <img id="imagePreview" class="image-preview" src="/placeholder.svg" alt="Preview" />
             <button type="button" class="remove-image" onclick="removeImage()">×</button>
         </div>
 
-        <input type="hidden" asp-for="Post.ImageUrl" id="imageUrlInput" />
-
-        <!-- Action buttons with Twitter-style layout -->
         <div class="post-actions">
-            <div class="action-buttons">
-                <button type="button" class="btn-icon" onclick="document.getElementById('imageInput').click()" title="Add image">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M3 5.5C3 4.119 4.119 3 5.5 3h13C19.881 3 21 4.119 21 5.5v13c0 1.381-1.119 2.5-2.5 2.5h-13C4.119 21 3 19.881 3 18.5v-13zM5.5 5c-.276 0-.5.224-.5.5v9.086l3-3 3 3 5-5 3 3V5.5c0-.276-.224-.5-.5-.5h-13zM8 11.5c0-1.381 1.119-2.5 2.5-2.5s2.5 1.119 2.5 2.5-1.119 2.5-2.5 2.5S8 12.881 8 11.5z" />
-                    </svg>
-                </button>
-            </div>
-
             <button type="submit" class="btn-post">Post</button>
         </div>
     </form>
 
-    <div>
-        <a asp-page="Index" class="back-link">← Back to Feed</a>
-    </div>
-</div>
-
 @section Scripts {
     @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+       await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 
-    <script>
-        function previewImage(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById('imagePreview').src = e.target.result;
-                    document.getElementById('imagePreviewContainer').classList.add('show');
-                    // Store the image URL or handle upload here
-                    document.getElementById('imageUrlInput').value = e.target.result;
+        <script>
+            function previewImage(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById('imagePreview').src = e.target.result;
+                        document.getElementById('imagePreviewContainer').classList.add('show');
+                        // A linha abaixo não é mais necessária, pois o ASP.NET Core cuidará do arquivo
+                        // document.getElementById('imageUrlInput').value = e.target.result;
+                    }
+                    reader.readAsDataURL(file);
                 }
-                reader.readAsDataURL(file);
             }
-        }
 
-        function removeImage() {
-            document.getElementById('imageInput').value = '';
-            document.getElementById('imageUrlInput').value = '';
-            document.getElementById('imagePreviewContainer').classList.remove('show');
-            document.getElementById('imagePreview').src = '';
-        }
+            function removeImage() {
+                document.getElementById('imageInput').value = '';
+                // A linha abaixo não é mais necessária
+                // document.getElementById('imageUrlInput').value = '';
+                document.getElementById('imagePreviewContainer').classList.remove('show');
+                document.getElementById('imagePreview').src = '/images/placeholder.svg'; // Volta pro placeholder
+            }
     </script>
 }

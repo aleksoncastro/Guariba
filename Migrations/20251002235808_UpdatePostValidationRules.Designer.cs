@@ -4,6 +4,7 @@ using Guariba.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Guariba.Migrations
 {
     [DbContext(typeof(SocialMediaContext))]
-    partial class SocialMediaContextModelSnapshot : ModelSnapshot
+    [Migration("20251002235808_UpdatePostValidationRules")]
+    partial class UpdatePostValidationRules
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -175,7 +178,7 @@ namespace Guariba.Migrations
 
                     b.HasIndex("SenderId");
 
-                    b.ToTable("PrivateMessage", (string)null);
+                    b.ToTable("PrivateMessage");
                 });
 
             modelBuilder.Entity("Guariba.Models.Share", b =>
@@ -219,7 +222,7 @@ namespace Guariba.Migrations
 
                     b.HasIndex("FolloweeId");
 
-                    b.ToTable("UserFollow", (string)null);
+                    b.ToTable("UserFollow");
                 });
 
             modelBuilder.Entity("Guariba.Models.UserInterest", b =>
@@ -232,7 +235,7 @@ namespace Guariba.Migrations
 
                     b.HasKey("UserId", "Interest");
 
-                    b.ToTable("UserInterest", (string)null);
+                    b.ToTable("UserInterest");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>

@@ -1,4 +1,4 @@
-﻿@page "/feed"
+﻿@page "/"
 @model Guariba.Pages.FeedModel
 @{
     ViewData["Title"] = "Feed";
@@ -48,6 +48,10 @@
             {
                 @foreach (var post in Model.Posts)
                 {
+                    <a asp-page="/Post/Details"
+                       asp-route-id="@post.Id"
+                       class="post-card-link">
+
                     <article class="post-card">
                         <div class="post-avatar">
                             <div class="avatar-placeholder">
@@ -73,10 +77,13 @@
                             </div>
                             <div class="post-actions-bar">
                                 <button class="action-btn comment-btn">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                                    </svg>
-                                    <span>@(post.CommentsCount ?? 0)</span>
+                                        <a class="action-btn comment-btn" asp-page="/Comment/Create" asp-route-postId="@post.Id">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                                            </svg>
+                                            <span>@(post.CommentsCount)</span>
+                                        </a>
+
                                 </button>
                                 <button class="action-btn retweet-btn">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -85,13 +92,13 @@
                                         <path d="M7 23l-4-4 4-4" />
                                         <path d="M21 13v2a4 4 0 0 1-4 4H3" />
                                     </svg>
-                                    <span>@(post.RetweetsCount ?? 0)</span>
+                                    <span>@(post.RetweetsCount)</span>
                                 </button>
                                 <button class="action-btn like-btn">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                                     </svg>
-                                    <span>@(post.LikesCount ?? 0)</span>
+                                    <span>@(post.LikesCount)</span>
                                 </button>
                                 <button class="action-btn share-btn">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -103,6 +110,7 @@
                             </div>
                         </div>
                     </article>
+                    </a>
                 }
             }
             else
@@ -216,6 +224,11 @@
         height: 100vh;
         padding: 20px;
         border-right: 1px solid #2f3336;
+    }
+
+    .post-card-link {
+        text-decoration: none;
+        color: inherit; /* Herda a cor do texto do elemento pai */
     }
 
     .logo h1 {

@@ -63,7 +63,21 @@ namespace Guariba.Data
                         BirthDate = new DateTime(1995, 3, 20),
                         UserGender = Gender.FEMININO
                     }
-                }
+                },
+                new User
+                {
+                    UserName="alek",
+                    Email="alek@email.com",
+                    PasswordHash="AQAAAAIAAYagAAAAENXFoTedp/kDMpOnX62/V/5W6fuFPvuZzYI12M9zJM7ap7gZq8SCMlcjR0QL7hGpow==", // Corrigido
+                    RegistrationDat=now,
+                    ProfilePhoto="/img/alek.png",
+                    PersonalInformation = new PersonalInformation
+                    {
+                        FullName = "Alek Castro",
+                        BirthDate = new DateTime(1990, 1, 1),
+                        UserGender = Gender.MASCULINO
+                    }
+                },
             };
 
             context.User.AddRange(users);

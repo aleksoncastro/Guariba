@@ -1,4 +1,6 @@
-﻿namespace Guariba.Models
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+
+namespace Guariba.Models
 {
     public class Comment
     {
@@ -16,8 +18,9 @@
 
         // (Opcional) Comentário pai, para threads
         public int? ParentCommentId { get; set; }
+        [ValidateNever]
         public Comment ParentComment { get; set; }
-
-        public ICollection<Comment> Replies { get; set; }
+        [ValidateNever]
+        public ICollection<Comment> Replies { get; set; } = new List<Comment>();
     }
 }

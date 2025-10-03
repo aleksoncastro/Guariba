@@ -2,42 +2,417 @@
 @model Guariba.Pages.Post.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Post Details";
 }
 
-<h1>Details</h1>
+<style>
+    body {
+        background-color: #000000;
+        color: #e7e9ea;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
 
-<div>
-    <h4>Post</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Post.TextContent)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Post.TextContent)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Post.ImageUrl)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Post.ImageUrl)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Post.CreatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Post.CreatedAt)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Post.User)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Post.User.UserName)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.Post.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    .twitter-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #000000;
+        min-height: 100vh;
+    }
+
+    .twitter-header {
+        position: sticky;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid #2f3336;
+        padding: 16px;
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        z-index: 10;
+    }
+
+    .back-button {
+        background: none;
+        border: none;
+        color: #e7e9ea;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.2s;
+    }
+
+        .back-button:hover {
+            background-color: rgba(231, 233, 234, 0.1);
+        }
+
+    .header-title h1 {
+        font-size: 20px;
+        font-weight: 700;
+        margin: 0;
+        color: #e7e9ea;
+    }
+
+    .main-post {
+        border-bottom: 1px solid #2f3336;
+        padding: 16px;
+    }
+
+    .post-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+    }
+
+    .avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #1d9bf0, #7856ff);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+        font-size: 20px;
+        flex-shrink: 0;
+    }
+
+    .post-user-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .username {
+        font-weight: 700;
+        color: #e7e9ea;
+        font-size: 15px;
+    }
+
+    .handle {
+        color: #71767b;
+        font-size: 15px;
+    }
+
+    .post-content {
+        font-size: 23px;
+        line-height: 28px;
+        color: #e7e9ea;
+        margin-bottom: 12px;
+        word-wrap: break-word;
+    }
+
+    .post-image {
+        width: 100%;
+        border-radius: 16px;
+        margin-bottom: 12px;
+        border: 1px solid #2f3336;
+    }
+
+    .post-timestamp {
+        color: #71767b;
+        font-size: 15px;
+        margin-bottom: 16px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #2f3336;
+    }
+
+    .post-stats {
+        display: flex;
+        gap: 20px;
+        padding: 16px 0;
+        border-bottom: 1px solid #2f3336;
+    }
+
+    .stat-item {
+        display: flex;
+        gap: 4px;
+        font-size: 15px;
+    }
+
+    .stat-number {
+        font-weight: 700;
+        color: #e7e9ea;
+    }
+
+    .stat-label {
+        color: #71767b;
+    }
+
+    .post-actions {
+        display: flex;
+        justify-content: space-around;
+        padding: 12px 0;
+        border-bottom: 1px solid #2f3336;
+    }
+
+    .action-button {
+        background: none;
+        border: none;
+        color: #71767b;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s;
+        font-size: 13px;
+    }
+
+        .action-button:hover {
+            background-color: rgba(29, 155, 240, 0.1);
+            color: #1d9bf0;
+        }
+
+    .comment-form {
+        border-bottom: 1px solid #2f3336;
+        padding: 16px;
+        display: flex;
+        gap: 12px;
+    }
+
+    .comment-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #7856ff, #1d9bf0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+        font-size: 16px;
+        flex-shrink: 0;
+    }
+
+    .comment-input-wrapper {
+        flex: 1;
+    }
+
+    .comment-textarea {
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        color: #e7e9ea;
+        font-size: 17px;
+        resize: none;
+        outline: none;
+        font-family: inherit;
+        padding: 12px 0;
+        min-height: 80px;
+    }
+
+        .comment-textarea::placeholder {
+            color: #71767b;
+        }
+
+    .comment-submit {
+        background-color: #1d9bf0;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        padding: 8px 16px;
+        font-weight: 700;
+        font-size: 15px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        align-self: flex-end;
+    }
+
+        .comment-submit:hover {
+            background-color: #1a8cd8;
+        }
+
+        .comment-submit:disabled {
+            background-color: #1d9bf0;
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+    .comments-section {
+        background-color: #000000;
+    }
+
+    .comment-item {
+        border-bottom: 1px solid #2f3336;
+        padding: 16px;
+        display: flex;
+        gap: 12px;
+        transition: background-color 0.2s;
+    }
+
+        .comment-item:hover {
+            background-color: rgba(255, 255, 255, 0.03);
+        }
+
+    .comment-content {
+        flex: 1;
+    }
+
+    .comment-header {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        margin-bottom: 4px;
+    }
+
+    .comment-username {
+        font-weight: 700;
+        color: #e7e9ea;
+        font-size: 15px;
+    }
+
+    .comment-handle {
+        color: #71767b;
+        font-size: 15px;
+    }
+
+    .comment-time {
+        color: #71767b;
+        font-size: 15px;
+    }
+
+    .comment-text {
+        color: #e7e9ea;
+        font-size: 15px;
+        line-height: 20px;
+        margin: 0;
+    }
+
+    .no-comments {
+        padding: 32px 16px;
+        text-align: center;
+        color: #71767b;
+        font-size: 15px;
+    }
+
+    .text-danger {
+        color: #f4212e;
+        font-size: 13px;
+        margin-top: 4px;
+    }
+
+    a {
+        color: #1d9bf0;
+        text-decoration: none;
+    }
+
+        a:hover {
+            text-decoration: underline;
+        }
+</style>
+
+<div class="twitter-container">
+    <div class="twitter-header">
+        <a href="/Post/Details", new { id=Comment.PostId } class="back-button">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7.414 13l5.043 5.04-1.414 1.42L3.586 12l7.457-7.46 1.414 1.42L7.414 11H21v2H7.414z" />
+            </svg>
+        </a>
+        <div class="header-title">
+            <h1>Post</h1>
+        </div>
+    </div>
+
+    <div class="main-post">
+        <div class="post-header">
+            <div class="avatar">
+                @Model.Post.User.UserName.Substring(0, 1).ToUpper()
+            </div>
+            <div class="post-user-info">
+                <span class="username">@Model.Post.User.UserName</span>
+                <span class="handle">@@@Model.Post.User.UserName.ToLower()</span>
+            </div>
+        </div>
+
+        <div class="post-content">
+            @Model.Post.TextContent
+        </div>
+
+        @if (!string.IsNullOrEmpty(Model.Post.ImageUrl))
+        {
+            <img src="@Model.Post.ImageUrl" alt="Post image" class="post-image" />
+        }
+
+        <div class="post-timestamp">
+            @Model.Post.CreatedAt.ToString("h:mm tt · MMM d, yyyy")
+        </div>
+
+        <div class="post-stats">
+            <div class="stat-item">
+                <span class="stat-number">@Model.Post.Comments.Count</span>
+                <span class="stat-label">Comentários</span>
+            </div>
+        </div>
+
+        <div class="post-actions">
+            <button class="action-button">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 8.129 3.64 8.129 8.13 0 2.96-1.607 5.68-4.196 7.11l-8.054 4.46v-3.69h-.067c-4.49.1-8.183-3.51-8.183-8.01zm8.005-6c-3.317 0-6.005 2.69-6.005 6 0 3.37 2.77 6.08 6.138 6.01l.351-.01h1.761v2.3l5.087-2.81c1.951-1.08 3.163-3.13 3.163-5.36 0-3.39-2.744-6.13-6.129-6.13H9.756z" />
+                </svg>
+            </button>
+            <button class="action-button">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z" />
+                </svg>
+            </button>
+            <button class="action-button">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.633 2.78.479 4.82 1.074 1.97 3.257 4.27 7.129 6.61 3.87-2.34 6.052-4.64 7.126-6.61 1.111-2.04 1.03-3.7.477-4.82-.561-1.13-1.666-1.84-2.908-1.91zm4.187 7.69c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z" />
+                </svg>
+            </button>
+            <button class="action-button">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.59l5.7 5.7-1.41 1.42L13 6.41V16h-2V6.41l-3.3 3.3-1.41-1.42L12 2.59zM21 15l-.02 3.51c0 1.38-1.12 2.49-2.5 2.49H5.5C4.11 21 3 19.88 3 18.5V15h2v3.5c0 .28.22.5.5.5h12.98c.28 0 .5-.22.5-.5L19 15h2z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <form method="post" class="comment-form">
+        <div class="comment-avatar">U</div>
+        <div class="comment-input-wrapper">
+            <textarea asp-for="NewCommentText"
+                      class="comment-textarea"
+                      placeholder="Poste sua resposta"
+                      rows="1"></textarea>
+            <span asp-validation-for="NewCommentText" class="text-danger"></span>
+            <button type="submit" asp-page-handler="AddComment" class="comment-submit">
+                Responder
+            </button>
+        </div>
+    </form>
+
+    <div class="comments-section">
+        @if (Model.Post.Comments.Any())
+        {
+            @foreach (var comment in Model.Post.Comments)
+            {
+                <div class="comment-item">
+                    <div class="avatar" style="width: 40px; height: 40px; font-size: 16px;">
+                        @comment.User.UserName.Substring(0, 1).ToUpper()
+                    </div>
+                    <div class="comment-content">
+                        <div class="comment-header">
+                            <span class="comment-username">@comment.User.UserName</span>
+                            <span class="comment-handle">@@@comment.User.UserName.ToLower()</span>
+                            <span class="comment-time">· @comment.CreatedAt.ToLocalTime().ToString("MMM d")</span>
+                        </div>
+                        <p class="comment-text">@comment.Text</p>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="no-comments">
+                Nenhum comentário ainda. Seja o primeiro a responder!
+            </div>
+        }
+    </div>
 </div>

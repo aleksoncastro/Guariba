@@ -1,43 +1,66 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Guariba.Data;
+using Guariba.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using Guariba.Data;
-using Guariba.Models;
 
 namespace Guariba.Pages.Post
 {
     public class DetailsModel : PageModel
     {
-        private readonly Guariba.Data.SocialMediaContext _context;
+        private readonly SocialMediaContext _context;
+        private readonly UserManager<User> _userManager;
 
-        public DetailsModel(Guariba.Data.SocialMediaContext context)
+        public DetailsModel(SocialMediaContext context, UserManager<User> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
-        public Guariba.Models.Post Post { get; set; } = default!;
+        [BindProperty]
+        public Guariba.Models.Post Post { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        [BindProperty]
+        public string NewCommentText { get; set; }
+
+        public async Task<IActionResult> OnGetAsync(int id)
         {
-            if (id == null)
-            {
+            Post = await _context.Post
+                .Include(p => p.Comments)
+                    .ThenInclude(c => c.User)
+                .FirstOrDefaultAsync(p => p.Id == id);
+
+            if (Post == null)
                 return NotFound();
+
+            return Page();
+        }
+
+        public async Task<IActionResult> OnPostAddCommentAsync(int id)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+                return RedirectToPage("/login", new { area = "Identity" });
+
+            if (string.IsNullOrWhiteSpace(NewCommentText))
+            {
+                ModelState.AddModelError("NewCommentText", "O comentário não pode estar vazio.");
+                return await OnGetAsync(id);
             }
 
-            var post = await _context.Post.FirstOrDefaultAsync(m => m.Id == id);
-            if (post == null)
+            var comment = new Guariba.Models.Comment
             {
-                return NotFound();
-            }
-            else
-            {
-                Post = post;
-            }
-            return Page();
+                Text = NewCommentText,
+                CreatedAt = DateTime.UtcNow,
+                UserId = user.Id,
+                PostId = id
+            };
+
+            _context.Comment.Add(comment);
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage(new { id }); // recarrega a página do post
         }
     }
 }
